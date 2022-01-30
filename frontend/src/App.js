@@ -7,9 +7,12 @@ import SigninComp from "./WorkingFolder/Components/SigninComp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signin from "./WorkingFolder/Components/Signin";
 import SignUp from "./WorkingFolder/Components/SignUp"
+// import AuthContext from "./WorkingFolder/Context/AuthContext";
 
 function App() {
   return (
+    // <AuthContext>
+
     <div className="App">
       <LeftBar />
       <Header />
@@ -27,6 +30,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+    // </AuthContext>
   );
 }
 
