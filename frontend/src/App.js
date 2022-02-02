@@ -4,9 +4,17 @@ import Header from "./WorkingFolder/Components/Header";
 import LeftBar from "./WorkingFolder/Components/LeftBar";
 import RightBar from "./WorkingFolder/Components/RightBar";
 import SigninComp from "./WorkingFolder/Components/SigninComp";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import Signin from "./WorkingFolder/Components/Signin";
-import SignUp from "./WorkingFolder/Components/SignUp"
+import SignUp from "./WorkingFolder/Components/SignUp";
+import { useEffect } from "react";
+import SingleSongPage from "./WorkingFolder/Components/SingleSongPage";
 // import AuthContext from "./WorkingFolder/Context/AuthContext";
 
 function App() {
@@ -17,18 +25,17 @@ function App() {
       <LeftBar />
       <Header />
 
-      <div className="separator">
-        <Content />
-      </div>
-      <RightBar />
       <div className="background"></div>
       <Router>
         <Routes>
-          <Route path="/signincomp"  element={<SigninComp />}/>
-          <Route path="/signin"  element={<Signin />}/>
-          <Route path="/signup"  element={<SignUp />}/>
+          <Route path="/" element={<Content />} />
+          <Route path="/signincomp" element={<SigninComp />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/song" element={<SingleSongPage />} />
         </Routes>
       </Router>
+      <RightBar />
     </div>
     // </AuthContext>
   );

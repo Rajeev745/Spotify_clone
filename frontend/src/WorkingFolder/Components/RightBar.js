@@ -2,6 +2,7 @@ import React from "react";
 import "../Styles/RightBar.css";
 import { MdOutlinePersonAddAlt } from "react-icons/md";
 import { FaUser, FaUsers } from "react-icons/fa";
+import LogOut from "./LogOut";
 
 export default function RightBar() {
   return (
@@ -27,6 +28,7 @@ export default function RightBar() {
       </div>
       <div className="setting"><p>Go to Setting = Social and enable 'share my listening activity on spotify' You can turn this off on anytime.</p></div>
       <div className="setting-button">Settings</div>
+      <div className="setting-button"><LogOut/></div>
     </div>
   );
 }

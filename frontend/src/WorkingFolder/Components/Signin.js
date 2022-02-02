@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/Signin.css";
 import { RiSpotifyFill, RiLockPasswordLine } from "react-icons/ri";
 import { AiOutlineMail } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function () {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit() {
     const authentication = getAuth();
@@ -17,7 +21,25 @@ export default function () {
       password
     );
     console.log(res);
+    if (res.code === "auth/wrong-password") {
+      toast.error("Please check the Password");
+    }
+    if (res.code === "auth/user-not-found") {
+      toast.error("Please check the Email");
+    }
+    if (res.code === "auth/email-already-in-use") {
+      toast.error("Email Already in Use");
+    }
   }
+  useEffect(() => {
+    let authToken = sessionStorage.getItem("Auth Token");
+    if (authToken) {
+      navigate("/");
+    }
+    if (!authToken) {
+      navigate("/signin");
+    }
+  }, []);
 
   return (
     <div className="signin">

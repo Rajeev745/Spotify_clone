@@ -6,19 +6,22 @@ import {
   RiFacebookBoxFill,
 } from "react-icons/ri";
 import { AiOutlineMail, AiOutlineUser, AiOutlineMinus } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth,  createUserWithEmailAndPassword } from 'firebase/auth'
 import { app } from "../../Firebase";
 
 export default function SignUp() {
  const [email,setEmail]=useState('')
  const [password,setPassword]=useState('')
+ const navigate=useNavigate()
 
   async function handlesubmit(){
     const authentication=getAuth()
    const responseData=await createUserWithEmailAndPassword(authentication,email,password)
    console.log(responseData)
-   localStorage.setItem('Auth Token', responseData._tokenResponse.refreshToken)
+   navigate("/")
+
+   sessionStorage.setItem('Auth Token', responseData._tokenResponse.refreshToken)
     
   }
 
