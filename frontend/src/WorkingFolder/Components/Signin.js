@@ -21,15 +21,7 @@ export default function () {
       password
     );
     console.log(res);
-    if (res.code === "auth/wrong-password") {
-      toast.error("Please check the Password");
-    }
-    if (res.code === "auth/user-not-found") {
-      toast.error("Please check the Email");
-    }
-    if (res.code === "auth/email-already-in-use") {
-      toast.error("Email Already in Use");
-    }
+    
   }
   useEffect(() => {
     let authToken = sessionStorage.getItem("Auth Token");

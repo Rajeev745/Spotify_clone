@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 export default function LogOut() {
   let navigate = useNavigate();
     const handleLogout = () => {
-      // sessionStorage.removeItem("Auth Token");
-      navigate("/login");
+      sessionStorage.removeItem("Auth Token");
+      navigate("/signin");
     };
   useEffect(() => {
     let authToken = sessionStorage.getItem("Auth Token");
@@ -14,7 +14,7 @@ export default function LogOut() {
       navigate("/");
     }
     if (!authToken) {
-      navigate("/signup");
+      navigate("/signin");
     }
   }, []);
   return <div

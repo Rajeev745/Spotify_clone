@@ -8,6 +8,7 @@ import {
 import { AiOutlineMail, AiOutlineUser, AiOutlineMinus } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth,  createUserWithEmailAndPassword } from 'firebase/auth'
+import { app } from "../../Firebase";
 
 export default function SignUp() {
  const [email,setEmail]=useState('')
@@ -21,6 +22,8 @@ export default function SignUp() {
    navigate("/")
 
    sessionStorage.setItem('Auth Token', responseData._tokenResponse.refreshToken)
+   let authToken = sessionStorage.getItem("Auth Token");
+   console.log(authToken);
     
   }
 
