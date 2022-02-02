@@ -8,7 +8,6 @@ import {
 import { AiOutlineMail, AiOutlineUser, AiOutlineMinus } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth,  createUserWithEmailAndPassword } from 'firebase/auth'
-import { app } from "../../Firebase";
 
 export default function SignUp() {
  const [email,setEmail]=useState('')

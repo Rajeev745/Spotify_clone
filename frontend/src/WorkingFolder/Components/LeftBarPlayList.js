@@ -15,7 +15,7 @@ export default function LeftBarPlayList() {
       <div className="playlistscroll">
         {PlayList &&
           PlayList.map((item,i) => (
-            <div className="playlist-scroll">
+            <div key={i} className="playlist-scroll">
               <i className="list">
                 <RiPlayListLine />
               </i>

@@ -15,6 +15,7 @@ import Signin from "./WorkingFolder/Components/Signin";
 import SignUp from "./WorkingFolder/Components/SignUp";
 import { useEffect } from "react";
 import SingleSongPage from "./WorkingFolder/Components/SingleSongPage";
+import LogOut from "./WorkingFolder/Components/LogOut";
 // import AuthContext from "./WorkingFolder/Context/AuthContext";
 
 function App() {
@@ -33,9 +34,12 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/song" element={<SingleSongPage />} />
+          <Route path="/logout" element={<LogOut/>}/>
+          
         </Routes>
+        <RightBar />
       </Router>
-      <RightBar />
+      
     </div>
     // </AuthContext>
   );
